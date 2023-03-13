@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 import shop.mtcoding.aop.handler.aop.LoginUser;
+import shop.mtcoding.aop.handler.aop.Session;
 import shop.mtcoding.aop.model.User;
 
 @RequiredArgsConstructor // final 의존성 주입코드
@@ -29,6 +30,13 @@ public class UserController {
 
       @GetMapping("/auth/1")
       public String auth(@LoginUser User principal) {
+            System.out.println("insert!");
+            System.out.println(principal.getUsername());
+            return "ok";
+      }
+
+      @GetMapping("/auth/2")
+      public String auth2(@Session User principal) {
             System.out.println("insert!");
             System.out.println(principal.getUsername());
             return "ok";
